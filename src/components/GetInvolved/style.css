@@ -1,0 +1,43 @@
+.getinvolved {
+  background: #98a9871a;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.getinvolved h1 {
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 45.25px;
+  color: #000000;
+  font-family: "Merriweather", serif;
+  margin-bottom: 20px;
+}
+
+.getinvolved p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19.36px;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  color: #646f79;
+  margin-bottom: 30px;
+}
+
+.getinvolved button {
+  border-radius: 9px;
+  padding: 10px;
+  background-color: #98a987;
+  border: none;
+  color: white;
+  font-weight: 600;
+  size: 16px;
+  line-height: 24px;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  width: 40%;
+}
+@media (max-width: 767.98px) {
+  .getinvolved button {
+    width: 100%;
+  }
+}

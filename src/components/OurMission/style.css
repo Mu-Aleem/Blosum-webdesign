@@ -1,0 +1,31 @@
+#our-mission {
+  margin: 70px 0;
+}
+.mission h1 {
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 40px;
+  font-family: "Merriweather", serif;
+  color: #000000;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.mission p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Inter", sans-serif;
+  text-align: left;
+  color: #646f79;
+  width: 60%;
+}
+@media (max-width: 767.98px) {
+  .mission p {
+    width: 100%;
+    text-align: center;
+  }
+  .mission h1 {
+    text-align: center;
+  }
+}

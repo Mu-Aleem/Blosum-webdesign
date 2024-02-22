@@ -1,0 +1,96 @@
+#contact-us {
+  margin: 100px 0;
+}
+#contact-us-left h1 {
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 45.25px;
+  color: #000000;
+  font-family: "Merriweather", serif;
+  margin-bottom: 10px;
+}
+#contact-us-left h5 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #00010e;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 15px;
+}
+
+#contact-us-left p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19.36px;
+  text-align: left;
+  font-family: "Inter", sans-serif;
+  color: #646f79;
+}
+
+#layout .form_group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+#layout input {
+  height: 40px;
+  border-radius: 6px;
+  border: 1px solid #6b7280;
+  outline: none;
+  width: 100%;
+  font-family: "Inter", sans-serif;
+  color: #000000;
+  padding: 10px;
+}
+
+#layout textarea {
+  border-radius: 6px;
+  border: 1px solid #6b7280;
+  outline: none;
+  width: 100%;
+  font-family: "Inter", sans-serif;
+  color: #000000;
+  padding: 10px;
+  resize: none;
+  height: 140px;
+}
+.form-us button {
+  font-family: "Inter", sans-serif;
+  color: white;
+  background-color: #98a987;
+  font-weight: 600;
+  size: 16px;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 9px;
+  border: none;
+  padding: 10px 32px 10px 32px;
+}
+.form-us button:hover {
+  background-color: #4b6a2b;
+}
+.form_button {
+  text-align: right;
+}
+.form_group_textarea {
+  width: 100%;
+}
+
+@media (max-width: 767.98px) {
+  #layout .form_group {
+    flex-direction: column;
+  }
+  .form-us button {
+    width: 100%;
+  }
+  #contact-us-left h1,
+  #contact-us-left h5,
+  #contact-us-left p {
+    text-align: center;
+  }
+  #contact-us-left {
+    margin-bottom: 20px;
+  }
+}

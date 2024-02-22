@@ -1,0 +1,68 @@
+.ourServices {
+  background: #98a9871a;
+  padding: 60px 0;
+}
+.services_text {
+  text-align: center;
+}
+.services_text h6 {
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 40px;
+  font-family: "Merriweather", serif;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.services_text p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Inter", sans-serif;
+  text-align: left;
+  text-align: center;
+  color: #646f79;
+}
+
+.ServicesBox_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.ServicesBox_main {
+  box-shadow: 0px 2px 8px 0px #0000001a;
+  border-radius: 24px;
+  width: 100%;
+  display: flex;
+  padding: 20px;
+  gap: 10px;
+  transition: box-shadow 0.3s ease;
+}
+.ServicesBox_main:hover {
+  box-shadow: 0px 8px 16px 0px #0000001a;
+}
+.ServicesBox_main h6 {
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  color: #000;
+  margin-bottom: 0;
+  text-align: justify;
+}
+.ServicesBox_main p {
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  color: #646f79;
+  margin-bottom: 0;
+  text-align: justify;
+}
+@media (max-width: 767.98px) {
+  .ServicesBox_wrapper {
+    flex-direction: column;
+  }
+}
