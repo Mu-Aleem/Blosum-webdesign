@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "./style.css";
+import toast from "react-hot-toast";
 
 const ContactUs = () => {
+  const [Loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -19,7 +21,7 @@ const ContactUs = () => {
       [name]: value,
     }));
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Perform form validation here
     if (
@@ -31,11 +33,62 @@ const ContactUs = () => {
       formData.subject.trim() === "" ||
       formData.message.trim() === ""
     ) {
-      alert("Please fill in all fields");
+      toast.error("Please fill in all fields");
       return;
     }
-    // Form is valid, proceed with form submission
-    console.log("Form data:", formData);
+
+    const data = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      businessName: formData.businessName,
+      contactName: formData.contactName,
+      contactPhone: formData.contactPhone,
+      subject: formData.subject,
+      message: formData.message,
+    };
+    try {
+      setLoading(true);
+
+      const response = await fetch(
+        `${process.env.REACT_APP_API_BASE_URL}/send-email`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      let responseData;
+      try {
+        responseData = await response.json();
+      } catch (error) {
+        // If the response is not JSON, handle it accordingly
+        console.log("Non-JSON response:", response.statusText);
+        toast.success("Email submitted successfully");
+        setLoading(false);
+        setFormData({
+          firstName: "",
+          lastName: "",
+          businessName: "",
+          contactName: "",
+          contactPhone: "",
+          subject: "",
+          message: "",
+        });
+        return;
+      }
+      toast.success("Form submitted successfully");
+    } catch (error) {
+      toast.error("An error occurred while submitting the form");
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <>
@@ -98,7 +151,7 @@ const ContactUs = () => {
                     </div>
                     <div className="form_group">
                       <input
-                        type="text"
+                        type="number"
                         placeholder="Enter Contact Phone"
                         name="contactPhone"
                         value={formData.contactPhone}
@@ -117,13 +170,16 @@ const ContactUs = () => {
                         id="msg"
                         type="text"
                         placeholder="Enter Message..."
+                        name="message"
                         value={formData.message}
                         onChange={handleChange}
                       />
                     </div>
                   </div>
                   <div className="form_button">
-                    <button type="submit">Send</button>
+                    <button type="submit" disabled={Loading}>
+                      {Loading ? "Loadind..." : "Send"}
+                    </button>
                   </div>
                 </div>
               </form>
